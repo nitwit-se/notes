@@ -49,7 +49,7 @@ jobs:
       - name: Install Node.js dependencies
         run: "[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true"
       - name: Install theme dependencies
-        run: "npm install tailwindcss"
+        run: "npm install tailwindcss autoprefixer postcss postcss-cli postcss-import prettier-plugin-go-template"
       - name: Build with Hugo
         env:
           # For maximum backward compatibility with Hugo modules
