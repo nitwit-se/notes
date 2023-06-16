@@ -8,6 +8,10 @@
   --content-width: 50rem;
 }
 
+body {
+    font-size: 1.0rem;
+}
+
 h1,h2,h3,h4,h5,h6 {
   font-family: var(--font-heading)
 }
@@ -51,7 +55,7 @@ pre button{
     font-family: var(--font-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     font-size: 0.875rem;
     line-height: 1.25rem;
-    color: var(--base);    
+    color: var(--base);
 }
 
 code[class*="language-"] {
@@ -61,10 +65,30 @@ code[class*="language-"] {
 
 
 img  {
-    max-width: 90%;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    max-width: 66%;
 }
 
 hr {
     margin-top: 2.5rem;
 }
 
+.content img {
+    box-shadow: rgba(0, 0, 0, 0.35) 2px 10px 10px;
+}
+
+.content a {
+  padding: 0.0rem;
+  font-style: normal;
+  text-decoration-line: underline;
+}
+.content a::before {
+  content: "[";
+  padding-right: 0.1rem;
+}
+
+.content a::after {
+  content: "]";
+  padding-left: 0.1rem;
+}

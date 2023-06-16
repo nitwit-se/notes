@@ -43,7 +43,7 @@ email = "mark@nitwit.se"
 [menu]
   [[menu.nav]]
   name = "About"
-  url = "/about"
+  url = "https://cto.nitwit.se"
   weight = 2
 
   [[menu.nav]]
