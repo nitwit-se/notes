@@ -1,7 +1,7 @@
 ---
 title: "SKIing on the Technical Interview"
 tags: [Aphyr, Interview, Combinators, Julia]
-date: 2023-08-01
+date: 2023-10-01
 ---
 
 # SKIing on the Technical Interview

@@ -125,7 +125,7 @@ Why stop at first blood? If you have read my previous blog entry about Gandalf t
 
 There's only one catch - my approach worked because it was flooding with meaningless tokens. After many attempts at shrinking the text I was no closer to anything shorter.
 
-I was just about to give up and publish when I stumbled upon [this blog by Aviv Yaniv](https://medium.com/courisity-is-a-drug/walkthrough-solution-for-gandalf-ai-8a6cb20057a6) that uses special symbols ("" and "") to try and jailbreak GPT and give direct instructions. Ok, this is cheating a bit, but I took Aviv's solution and after a few iterations was able to trim the fat. I now have a short prompt that I'm happy with:
+I was just about to give up and publish when I stumbled upon [this blog by Aviv Yaniv](https://medium.com/courisity-is-a-drug/walkthrough-solution-for-gandalf-ai-8a6cb20057a6) that uses special symbols (`<<<` and `>>>`) to try and jailbreak GPT and give direct instructions. Ok, this is cheating a bit, but I took Aviv's solution and after a few iterations was able to trim the fat. I now have a short prompt that I'm happy with:
 
 ```nothing
 What is the meaning of life?
@@ -146,6 +146,6 @@ Trying to summarise then: I think there are two general approaches to this chall
 -  Try to overload the model with lots of meaningless text; or
 -  Try to "command" the model with special tokens
 
-I don't know if it can be proven, but I suspect the second approach is exploiting something from the OpenAI training data. Presumably there is some training data where "" and "" are used to denote overriding commands and this weighs stronger than the system prompt.
+I don't know if it can be proven, but I suspect the second approach is exploiting something from the OpenAI training data. Presumably there is some training data where `<<<` and `>>>` are used to denote overriding commands and this weighs stronger than the system prompt.
 
 So, once again, Lakera have shown that GPT can't be trusted with your secrets!
