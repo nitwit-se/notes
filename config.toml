@@ -1,7 +1,8 @@
 baseURL = 'http://notes.nitwit.se/'
 languageCode = 'en-us'
 title = 'notes.nitwit.se'
-theme = "hugo-toigian"
+#theme = "hugo-toigian"
+theme = "hugo-bearblog"
 
 # (Optional) If you provide a Disqus shortname, comments will be enabled on
 # all pages.
@@ -21,6 +22,7 @@ toc = true
 # See https://gohugo.io/content-management/comments/#configure-disqus
 # Can be overwritten by same param in page frontmatter
 comments = true
+hideMadeWithLine = true
 
 [params.author]
 name = "Mark Dixon"
