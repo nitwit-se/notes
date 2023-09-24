@@ -1,56 +1,53 @@
 
-<script>
-console.log("Hello");
+<script defer>
+  const copyButtonLabel = "Copy";
 
+  // use a class selector if available
+  let blocks = document.querySelectorAll("pre");
 
+  blocks.forEach((block) => {
+    // only add button if browser supports Clipboard API
+    if (navigator.clipboard) {
+      let button = document.createElement("button");
 
-const copyButtonLabel = "Copy";
+      button.innerText = copyButtonLabel;
+      block.appendChild(button);
 
-// use a class selector if available
-let blocks = document.querySelectorAll("pre");
+      button.addEventListener("click", async () => {
+          await copyCode(block, button);
+      });
+    }
+  });
 
-blocks.forEach((block) => {
-  // only add button if browser supports Clipboard API
-  if (navigator.clipboard) {
-    let button = document.createElement("button");
+  async function copyCode(block, button) {
+    let code = block.querySelector("code");
+    let text = code.innerText.replaceAll("\n\n","\n");
 
-    button.innerText = copyButtonLabel;
-    block.appendChild(button);
+    await navigator.clipboard.writeText(text);
 
-    button.addEventListener("click", async () => {
-        await copyCode(block, button);
-    });
+    // visual feedback that task is completed
+    button.innerText = "Copied";
+
+    setTimeout(() => {
+      button.innerText = copyButtonLabel;
+    }, 700);
   }
-});
-
-async function copyCode(block, button) {
-  let code = block.querySelector("code");
-  let text = code.innerText.replaceAll("\n\n","\n");
-
-  await navigator.clipboard.writeText(text);
-
-  // visual feedback that task is completed
-  button.innerText = "Copied";
-
-  setTimeout(() => {
-    button.innerText = copyButtonLabel;
-  }, 700);
-}
-
-block.setAttribute("tabindex", 0);
 
 </script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/medium-zoom/1.0.6/medium-zoom.min.js" integrity="sha512-N9IJRoc3LaP3NDoiGkcPa4gG94kapGpaA5Zq9/Dr04uf5TbLFU5q0o8AbRhLKUUlp8QFS2u7S+Yti0U7QtuZvQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-<script>
-  const images = Array.from(document.querySelectorAll(".content img"));
-  images.forEach(img => {
-    mediumZoom(img, {
-      margin: 0, /* The space outside the zoomed image */
-      scrollOffset: 40, /* The number of pixels to scroll to close the zoom */
-      container: null, /* The viewport to render the zoom in */
-      template: null /* The template element to display on zoom */
+<script defer>
+  document.addEventListener("DOMContentLoaded", function(){
+    const images = Array.from(document.querySelectorAll("content img"));
+
+    images.forEach(img => {
+      mediumZoom(img, {
+        margin: 0, /* The space outside the zoomed image */
+        scrollOffset: 40, /* The number of pixels to scroll to close the zoom */
+        container: null, /* The viewport to render the zoom in */
+        template: null /* The template element to display on zoom */
+      });
     });
   });
 </script>

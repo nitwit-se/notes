@@ -1,5 +1,5 @@
 {{ define "main" }}
-  {{ .Content }}
+  {{ .Content | emojify }}
 
 
 {{ with .Site.GetPage "/posts" }}
@@ -22,7 +22,7 @@
           </time>
         </i>
       </span>
-      <a href="{{ .Permalink }}">{{ .Title }}</a>
+      <a href="{{ .Permalink }}">{{ .Title | emojify }}</a>
     </li>
     {{ else }}
     <li>
@@ -36,7 +36,7 @@
     <small>
       <div>
         {{ range .Site.Taxonomies.tags }}
-        <a href="{{ .Page.Permalink }}">#{{ .Page.Title }}</a>&nbsp;
+        <a href="{{ .Page.Permalink }}">#{{ .Page.Title | emojify }}</a>&nbsp;
         {{ end }}
       </div>
     </small>
