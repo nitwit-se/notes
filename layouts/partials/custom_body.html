@@ -1,7 +1,42 @@
 
 {{ if eq .Type "posts" }}
 
-{{ template "_internal/disqus.html" . }}
+<!-- JS lazy-loaded -->
+<div id="disqus_thread" data-shortname="{{ .Site.DisqusShortname }}"></div>
+
+<script defer>
+
+// =============================
+// Disqus
+// =============================
+
+var disqusEl = document.getElementById("disqus_thread");
+if (disqusEl !== null) {
+  if ("IntersectionObserver" in window) {
+    startDisqusObserver();
+  } else {
+    loadDisqus(disqusEl.getAttribute('data-shortname'));
+  }
+}
+
+// Look for when the user hits the comments before loading
+function startDisqusObserver() {
+  var disqus_observer = new IntersectionObserver(function(entries) {
+    if (entries[0].isIntersecting) {
+      loadDisqus(entries[0].target.getAttribute('data-shortname'));
+      disqus_observer.disconnect();
+    }
+  }, {threshold: [0], rootMargin: "0px 0px 600px 0px"});
+  disqus_observer.observe(document.querySelector("#disqus_thread"));
+}
+
+// Load the script
+function loadDisqus(disqusShortname) {
+  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+  dsq.src = '//' + disqusShortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}
+</script>
 
 <script defer>
   const copyButtonLabel = "Copy";
