@@ -15,7 +15,7 @@ date: 2023-09-25
 By Mark Dixon
 #### _____
 
-This note is more a homage to the excellent series of of [blog entries by Aphyr](https://aphyr.com/tags/interviews) parodying coding interviews. The original is leagues beyond anything I could ever hope to accomplish, but after a number of coding sessions trying to get to the bottom of some combinator programming in Julia I could't resist the urge to use it here.
+This note is more a homage to the excellent series of of [blog entries by Aphyr](https://aphyr.com/tags/interviews) parodying coding interviews. The original is leagues beyond anything I could ever hope to accomplish, but after a number of coding sessions trying to get to the bottom of some combinator programming in Julia I could't resist the urge to use it here:
 ## SKIing on the Technical Interview
 
 You trail behind Tim into the brightly illuminated chamber. A tad too radiant for your preferences, you sense a wave of apprehensive dread beginning to surge. Perhaps the whispers you've heard about this small tribe hold truth - your instincts urge you to retreat, but Tim is swifter and ushers you towards a chair.
