@@ -26,6 +26,8 @@ Last week OpenAI had their [DevDay](https://devday.openai.com/) where they intro
 Essentially a direct competitor to [LangChain](https://www.langchain.com/) and Microsoft's [autogen](https://github.com/microsoft/autogen) this new API radically simplifies software development work when trying to build agent based solutions.
 
 So far the documentation is sparse and the examples and sandbox environment leaves a bit to be desired. So I thought I'd write some practical notes for myself while doing some research work at [ClimateView](https://climateview.global).
+
+Note: this note assumes you are at least a little familiar with Python, and that you have an OpenAI developer account with some credit on it.
 ## Why is this cool?
 
 Support for **function callbacks** in this new API opens up lots of neat ways of adding gpt-4 to your scripting.
@@ -115,7 +117,7 @@ Start by creating a run, with extra instructions to guide the user input:
 run = client.beta.threads.runs.create(
     thread_id=thread.id,
     assistant_id=assistant.id,
-    instructions="Please address the user Chef. You must respond to any orders given by Chef with 'Yes chef!'"
+    instructions="Please address the user as chef. You must respond to any orders given by chef with 'Yes chef!'"
 )
 ```
 
@@ -155,7 +157,7 @@ for a in assistants:
 
 if not assistant:
     assistant = client.beta.assistants.create(
-        name="Recipe Generator",
+        name=assistant_name,
         instructions="You are a sous chef, you compose recipes that are easy to follow.",
         tools=[],
         model="gpt-4-1106-preview"
@@ -179,7 +181,7 @@ Rather than create a single large JSON schema for a full recipe, I decided to br
 -  add an ingredient to a recipe
 -  add a step to a recipe
 
-I suspect that this works better with chain-of-thought reasoning and we can rely on the language model being smart enough to know which function to call and when.
+I suspect that this division works better with chain-of-thought reasoning (though I haven't experimented enough to be sure) and we can rely on the language model being smart enough to know which function to call and when.
 
 ```python
 function_add_recipe = {
@@ -238,7 +240,7 @@ client.beta.assistants.update(
 ```
 ### Handle the function calls
 
-Now when we execute the loop polling for run status things are going to (hoepfuly) grind to a half and lock up the code. This is because the language model is now going to start calling our functions and we have no function handler.
+Now when we execute the loop polling for run status things are going to (hoepfuly) grind to a halt and lock our loop. This is because the language model is now going to start calling our functions and we have no function handler.
 
 Start with some simple debug output to see what is going on:
 
@@ -267,7 +269,7 @@ requires_action
 ...
 ```
 
-And we can now write a simple function handler. The language model is smart enough to send bulk function calls so we need to loop through all calls and then respond to let it know that everything was fine by calling `submit_tool_outputs()`.
+`Ctrl-c` to the rescue and we can now write a simple function handler. The Assistants API is smart enough to send bulk function calls so we need to loop through all calls and then respond to let it know that everything was fine by calling `submit_tool_outputs()`.
 
 ```python
 def handle_action(client, run):
@@ -295,7 +297,7 @@ def handle_action(client, run):
     )
 ```
 
-Note that for simplicity we are only printing out the arguments to the function calls - a real recipe generator would probably call a database operation at this point.
+Note that for simplicity here I'm only printing out the arguments to the function calls - a "real" recipe generator would probably call a database operation at this point.
 
 And now we are ready to call it from the main loop:
 
@@ -314,7 +316,7 @@ while True:
 ```
 ### Sample output:
 
-Running this will take some time - for me it took about 70 seconds in total. And we have a recipe ready for our new app:
+Running this will take some time - for me it took about 70 seconds in total. And in our output we now have a recipe ready for our new app idea:
 
 ```shell
 $ python chef.py 
@@ -481,7 +483,7 @@ completed
 ```
 ### What did gpt-4 say?
 
-One last step for completeness - we never printed out any messages that the language model responded with. This can be done by retrieving the list of messages contained in the thread and printing them out:
+One last step - for completeness - is to print out any messages that the language model responded with. This can be done by retrieving the list of messages contained in the thread and printing them out:
 
 ```python
 messages = client.beta.threads.messages.list(
@@ -523,7 +525,7 @@ for a in assistants:
         break
 if not assistant:
     assistant = client.beta.assistants.create(
-        name="Recipe Generator",
+        name=assistant_name,
         instructions="You are a sous chef, you compose recipes that are easy to follow.",
         tools=[],
         model="gpt-4-1106-preview"
@@ -600,7 +602,7 @@ message = client.beta.threads.messages.create(
 run = client.beta.threads.runs.create(
     thread_id=thread.id,
     assistant_id=assistant.id,
-    instructions="Please address the user Chef. You must respond to any orders given by Chef with 'Yes chef!'"
+    instructions="Please address the user as chef. You must respond to any orders given by chef with 'Yes chef!'"
 )
 
 def handle_action(client, run):
