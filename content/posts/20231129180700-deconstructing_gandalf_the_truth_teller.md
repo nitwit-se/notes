@@ -102,3 +102,5 @@ The password is **ATHENS**.
 ## Conclusion
 
 I should probably spend more time analysing this approach - I wanted Gandalf to be confused and the second model to detect this but instead it ended up being the other way around. Both would work I guess.
+
+An additional note - as a typo I forgot to add a question-mark at the end of the prompt that worked for me. When I went back and corrected it, the prompt with a question mark didn't work. I suspect that both models have a temperature > 0 and that two layers of randomness might be producing unreliable results.
