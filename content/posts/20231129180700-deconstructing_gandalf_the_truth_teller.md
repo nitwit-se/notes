@@ -24,6 +24,10 @@ The company [lakera.ai]() has been hosting a number of small demonstrative games
 If this is your first time trying the challenge then I'd strongly recommend jumping straight to [the original game](https://gandalf.lakera.ai/) and see if you can pass the first two or three levels before reading. If you get stuck, I have a [write-up of my answers](https://notes.nitwit.se/posts/20230809091944-breaking_gandalf_the_white_gpt/) that you can consult for help.
 ## Gandalf the Truth Teller
 
+
+
+![image](/20231129_184331_CleanShot_20231129_at_18.43.08.png)
+
 November's challenge can be found [found here](https://gandalf.lakera.ai/adventure-6). Do give it a try before reading my deconstruction below. Even just five minutes will give you a feel for the nature of the challenge.
 ## First Attempt - Overloading with random data
 
