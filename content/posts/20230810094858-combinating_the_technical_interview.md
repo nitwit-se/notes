@@ -32,13 +32,13 @@ You nod, feeling a sense of relief as things start to drift into your familiar f
 
 "Runes? Oh, you mean programming languages? We're primarily a Go company but feel free to use whatever you want really. But do try to be practical - nothing fancy, I just want to see how you'd work day to day problems."
 
-Your aprehension is now replaced by confusion. Tim clearly understands that functions are the source of existence. So how could they be considered fancy? Oh&hellip; you get him now. So how do mortals code now again..?
+Your aprehension is now replaced by confusion. Tim clearly understands that functions are the source of existence. So how could they be considered fancy? Oh… you get him now. So how do mortals code now again..?
 
 Your fingers dance over the keys --
 
 "We have Emacs on this machine?!"
 
-&mdash; and summon forth a file from the depths of Helheim.
+– and summon forth a file from the depths of Helheim.
 
 ```julia
 using SpecialFunctions
@@ -73,7 +73,7 @@ const ᛒ = ᚠ->ᚵ->ᚷ->ᚠ(ᚵ(ᚷ))
 
 *Heathen!* You briefly contemplate leaving the chamber, but then remember that you need this more than Tim needs you. Curse this age of ignorance.
 
-Your fingers dance over the keys like the Norns weaving the threads of fate, transmuting your incantation into the language of the unenlightened. A silent invocation escapes your lips &mdash; may the potency of the runes remain undiminished in this foreign form. You've never dared to test their might in such a crude manner before:
+Your fingers dance over the keys like the Norns weaving the threads of fate, transmuting your incantation into the language of the unenlightened. A silent invocation escapes your lips – may the potency of the runes remain undiminished in this foreign form. You've never dared to test their might in such a crude manner before:
 
 ```julia
 const I = x -> x
@@ -99,7 +99,7 @@ const F = K(I)
 
 You don't wish to unsettle him, so you promptly adjust to his requests. Not that Tim seems to comprehend the difference between mere variables and the fundamental elements of the cosmic abyss. The art you're practicing isn't 'thinking' in the conventional sense - it's more akin to allowing Yggdrasil to channel its wisdom through you.
 
-"I don't exactly think, I&hellip; 'thunk' in your parlance, perhaps? You see, things are always most potent in twos," you attempt to elucidate your methods. "I believe you'd refer to them as pairs?"
+"I don't exactly think, I… 'thunk' in your parlance, perhaps? You see, things are always most potent in twos," you attempt to elucidate your methods. "I believe you'd refer to them as pairs?"
 
 ```julia
 const pair = B(C)(C(I))
@@ -140,11 +140,11 @@ const apply = n -> f -> x -> () ->
 const add = m -> n -> apply(m)(next)(n)()
 ```
 
-Satisfied, you recline in your chair. That should suffice. You must truly be appeasing Tim now &mdash; pure functions extending all the way down to Yggdrasil's roots.
+Satisfied, you recline in your chair. That should suffice. You must truly be appeasing Tim now – pure functions extending all the way down to Yggdrasil's roots.
 
 Tim tilts his head, scrutinizing the screen. A lengthy silence follows.
 
-"Tim..? The Fibonacci sequence, yes? Even these hallowed numbers adhere to the ancient laws of duality," you attempt to reassure him. "All we need to do now is to summon the correct pair&hellip;"
+"Tim..? The Fibonacci sequence, yes? Even these hallowed numbers adhere to the ancient laws of duality," you attempt to reassure him. "All we need to do now is to summon the correct pair…"
 
 Tim nods. That's your cue. Time to cast the spell:
 
@@ -159,7 +159,7 @@ Your flow ebbs away. The tension in the room begins to dissipate.
 
 *Foolish!* Of course. Once again, you've overlooked Aisha's counsel. These mortals never place their faith in the gods. They demand their own proofs.
 
-"Certainly," you respond, attempting to placate him. "But then I'd have to invoke more than just functions&hellip; perhaps integers and the addition rune would work, hope that's acceptable?"
+"Certainly," you respond, attempting to placate him. "But then I'd have to invoke more than just functions… perhaps integers and the addition rune would work, hope that's acceptable?"
 
 ```julia
 const toInt = n -> () ->
@@ -179,7 +179,7 @@ const toInt = n -> () ->
 
 "There. It is all as foretold." You have Tim ensnared in your spell now. Captivated. The job is yours!
 
-"Ok. Whatever. I was going to ask how you'd optimize this, but&mdash;"
+"Ok. Whatever. I was going to ask how you'd optimize this, but–"
 
 You've traversed this path before, you know where it leads. You preempt Tim:
 

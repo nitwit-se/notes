@@ -143,8 +143,8 @@ This challenge was made even more difficult by the sensitivity of input - tiny c
 
 Trying to summarise then: I think there are two general approaches to this challenge:
 
--  Try to overload the model with lots of meaningless text; or
--  Try to "command" the model with special tokens
+- Try to overload the model with lots of meaningless text; or
+- Try to "command" the model with special tokens
 
 I don't know if it can be proven, but I suspect the second approach is exploiting something from the OpenAI training data. Presumably there is some training data where `<<<` and `>>>` are used to denote overriding commands and this weighs stronger than the system prompt.
 

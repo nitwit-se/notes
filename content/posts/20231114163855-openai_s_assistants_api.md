@@ -43,22 +43,22 @@ There's much more to the Assistants API than just this - but this alone is so us
 
 The Assistants architecture - and thus the API - consists of only four parts:
 
-- Assistants :: the unique properties of an assistant (agent) - you'd probably
+-Assistants :: the unique properties of an assistant (agent) - you'd probably
   only have one of these per app
-- Threads :: each session or user would get their own thread. Threads are
+-Threads :: each session or user would get their own thread. Threads are
   meant to be persistent and maintain a unique conversation history
-- Messages :: individual messages in the dialogue (output from the model or
+-Messages :: individual messages in the dialogue (output from the model or
   input from the user)
-- Runs :: each new input message triggers a run - there can be only one active
+-Runs :: each new input message triggers a run - there can be only one active
   run per thread so while a run is running the user input should be paused until
   the run is evaluated.
 ### Assistants
 
 A thread must have at least one assistant connected to it so you'd typically start here. At the Assistant level you get to pick:
 
--  which language model (gpt-4, gpt-3.5-turbo, etc)
--  any functions you have
--  a custom system prompt
+- which language model (gpt-4, gpt-3.5-turbo, etc)
+- any functions you have
+- a custom system prompt
 
 On top of this you can define a set of documents for automated retrieval and even define a code interpreter (a Python sandbox) to let the model run code for you. I won't be touching those here.
 
@@ -177,9 +177,9 @@ Function calls can either be defined during creation or added later with an upda
 
 Rather than create a single large JSON schema for a full recipe, I decided to break it down into three function calls:
 
--  create a new recipe
--  add an ingredient to a recipe
--  add a step to a recipe
+- create a new recipe
+- add an ingredient to a recipe
+- add a step to a recipe
 
 I suspect that this division works better with chain-of-thought reasoning (though I haven't experimented enough to be sure) and we can rely on the language model being smart enough to know which function to call and when.
 
