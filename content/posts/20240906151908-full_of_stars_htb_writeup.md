@@ -19,7 +19,7 @@ By Mark Dixon
 
 ---
 
-This is a writeup for the Hack The Box AI challenge [Full of Stars](https://app.hackthebox.com/challenges/Full%2520of%2520Stars). My solution feels like a bit of a hack but it finds a solution in about 15 seconds (on a M1 CPU) which is the best I have been able to find.
+This is a writeup for the Hack The Box AI challenge [Full of Stars](https://app.hackthebox.com/challenges/Full%2520of%2520Stars). My approach feels like a bit of a hack but it finds a solution in about 15 seconds (on a M1 CPU) which is the best I have been able to achieve.
 
 If you have a more elegant or faster solution I'd love to hear about it!
 ## Intro
