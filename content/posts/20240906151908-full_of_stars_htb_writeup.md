@@ -183,7 +183,6 @@ def assign_cluster(start_indices, cluster_label, out_labels, kdtree, max_distanc
             break
 
         # Assign the cluster label to the unprocessed points
-        #print(unprocessed_indices)
         for idx in unprocessed_indices:
             out_labels[idx] = cluster_label
 
@@ -203,7 +202,7 @@ for counter in range(10):  # grow the distance gradually
 
 ```
 
-Changing the plotly code to render the points whose index is not -1 (np.where(np.where(out<sub>labels</sub> != -1)[0])[0]) and re-running gives us nicely clustered stars:
+Changing the plotly code to render the points whose index is not -1 (`np.where(np.where(out_labels != -1)[0])[0]`) and re-running gives us nicely clustered stars:
 
 
 
